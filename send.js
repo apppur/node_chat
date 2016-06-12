@@ -1,4 +1,10 @@
 var http = require('http');
+var Message = require('./message').Message;
+
+var message = new Message();
+//var msg = message.createMessage(10002003);
+var msg = message.createMessage(10003102);
+console.log(msg);
 
 process.title = 'httpclient';
 
@@ -24,19 +30,21 @@ var data = "<agip>" +
 		   "</agip>";
 var datalen = data.length;
 
-console.log(data);
+//console.log(data);
 console.log(datalen);
 
 var options = {
 	//hostname: '10.10.41.89',
 	//port: 9186,
-	hostname: '127.0.0.1',
-	port: 8888,
+	//hostname: '127.0.0.1',
+	//port: 8888,
+	hostname: '113.208.129.53',
+	port: 14663,
 	path: '/',
 	method: 'POST',
 	headers: {
 		'Content-Type': 'application/xml',
-		'Content-Length': data.length
+		'Content-Length': msg.length
 	}
 };
 
@@ -52,10 +60,10 @@ var client = function() {
 	req.on('error', function(e) {
 			console.log('Problem with request: ' + e.message);
 	});
-	req.write(data);
+	req.write(msg);
 	req.end();
 };
 
-//client();
+client();
 
-setInterval(client, 15000);
+//setInterval(client, 15000);
