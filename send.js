@@ -3,7 +3,12 @@ var Message = require('./message').Message;
 
 var message = new Message();
 //var msg = message.createMessage(10002003);
-var msg = message.createMessage(10003102, 'apple', 'purple', 222);
+//var msg = message.createMessage(10003802);
+//var msg = message.createMessage(10003102);
+//var msg = message.createMessage(10003119);
+//var msg = message.createMessage(10003303);
+//var msg = message.createMessage(10003413);
+var msg = message.createMessage(10003411);
 console.log(msg);
 
 process.title = 'httpclient';
