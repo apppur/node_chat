@@ -1,0 +1,30 @@
+10003802
+<agip><header><command_id>10003802</command_id><game_id>2161</game_id><gateway_id>361001</gateway_id></header><body><data><UN>linekong<Token>1234554321asdf<UserIP4>2130706433<Port>8888<MAC>02eaff21aa20<ClientType>1<UID>121213<AdultState>1<PW>123456</data></body>
+337
+STATUS: 200
+HEADERS: {"content-type":"text/plain","content-length":"718"}
+BODY: <?xml version="1.0" encoding="utf-8" ?>
+<agip>
+    <header>
+        <command_id>20003802</command_id>
+        <game_id>2161</game_id>
+        <gateway_id>361001</gateway_id>
+    </header>
+    <body>
+        <result_code>-100</result_code>
+        <user_id>0</user_id>
+        <user_type>0</user_type>
+        <adult_flag>0</adult_flag>
+        <user_class>0</user_class>
+        <user_role_count>0</user_role_count>
+        <user_point>0</user_point>
+        <promoter_id>0</promoter_id>
+        <user_flag>0</user_flag>
+        <cp_return_value>0</cp_return_value>
+        <cp_err_msg></cp_err_msg>
+        <user_name></user_name>
+        <appendix1>0</appendix1>
+        <appendix2>0</appendix2>
+    </body>
+</agip>
+
