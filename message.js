@@ -4,6 +4,9 @@ var Message = function() {
 };
 
 Message.prototype.createMessage = function (id) {
+    for (var i = 0; i < arguments.length; i++) {
+        console.log(arguments[i]);
+    }
     var data;
     switch (id) {
         case 10002003:
