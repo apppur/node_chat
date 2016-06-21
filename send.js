@@ -4,11 +4,11 @@ var Message = require('./message').Message;
 var message = new Message();
 //var msg = message.createMessage(10002003);
 //var msg = message.createMessage(10003802);
-//var msg = message.createMessage(10003102);
+var msg = message.createMessage(10003102);
 //var msg = message.createMessage(10003119);
 //var msg = message.createMessage(10003303);
 //var msg = message.createMessage(10003413);
-var msg = message.createMessage(10003411);
+//var msg = message.createMessage(10003411);
 console.log(msg);
 
 process.title = 'httpclient';
@@ -45,6 +45,7 @@ var options = {
 	//port: 8888,
 	hostname: '113.208.129.53',
 	port: 14663,
+	//port: 14664,
 	path: '/',
 	method: 'POST',
 	headers: {
@@ -72,3 +73,18 @@ var client = function() {
 client();
 
 //setInterval(client, 15000);
+
+
+var device = "1234abcd";
+var uuid = 54321;
+
+var login = {
+    un: device,
+    id: uuid
+};
+
+console.log(login);
+
+message.infoMessage(100, 200, function(id, val) {
+    message.dumpMessage(id, val);
+});

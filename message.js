@@ -3,6 +3,15 @@
 var Message = function() {
 };
 
+Message.prototype.dumpMessage = function(device, unid) {
+    console.log(device);
+    console.log(unid);
+}
+
+Message.prototype.infoMessage = function(userId, roleId, next) {
+    next(userId, roleId);
+}
+
 Message.prototype.createMessage = function (id) {
     for (var i = 0; i < arguments.length; i++) {
         console.log(arguments[i]);
