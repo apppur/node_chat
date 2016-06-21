@@ -1,15 +1,16 @@
 var http = require('http');
+var parser = require('xml2json');
 var Message = require('./message').Message;
 
 var message = new Message();
 //var msg = message.createMessage(10002003);
-//var msg = message.createMessage(10003802);
+var msg = message.createMessage(10003802);
 //var msg = message.createMessage(10003102);
 //var msg = message.createMessage(10003119);
 //var msg = message.createMessage(10003303);
 //var msg = message.createMessage(10003413);
-var msg = message.createMessage(10003411);
-console.log(msg);
+//var msg = message.createMessage(10003411);
+//console.log(msg);
 
 process.title = 'httpclient';
 
@@ -41,10 +42,10 @@ console.log(datalen);
 var options = {
 	//hostname: '10.10.41.89',
 	//port: 9186,
-	//hostname: '127.0.0.1',
-	//port: 8888,
-	hostname: '113.208.129.53',
-	port: 14663,
+	hostname: '127.0.0.1',
+	port: 8888,
+	//hostname: '113.208.129.53',
+	//port: 14663,
 	path: '/',
 	method: 'POST',
 	headers: {
@@ -59,9 +60,21 @@ var client = function() {
 			console.log('HEADERS: ' + JSON.stringify(res.headers));
 			res.setEncoding('utf8');
 			res.on('data', function (chunk) {
-				console.log('BODY: ' + chunk);
+                var json = parser.toJson(chunk);
+				console.log(json);
+
+                var resInfo = JSON.parse(json);
+                var result = resInfo.agip.body.result_code;
+                console.log(result);
 			});
 	});
+    req.on('socket', function(socket) {
+        socket.setTimeout(1000);
+        socket.on('timeout', function() {
+            req.abort();
+            console.log("HTTP POST: response timeout");
+        });
+    });
 	req.on('error', function(e) {
 			console.log('Problem with request: ' + e.message);
 	});
@@ -69,6 +82,6 @@ var client = function() {
 	req.end();
 };
 
-client();
+//client();
 
-//setInterval(client, 15000);
+setInterval(client, 5000);
