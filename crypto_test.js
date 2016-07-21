@@ -1,6 +1,7 @@
 var crypto = require('crypto');
 
 var info = '';
+var key = '6c696e656b6f6e675f79696e67706569';
 
 function cipher(algorithm, key, buff, next) {
     var encrypted = '';
@@ -15,7 +16,7 @@ function log(buff) {
     console.log(buff);
 }
 
-cipher('aes-256-ecb', 'asdfjklc', 'applepurple', log);
+cipher('aes-256-ecb', key, 'ApplePurple', log);
 
 function decipher(algorithm, key, encrypted, next) {
     var decrypted = '';
@@ -25,4 +26,4 @@ function decipher(algorithm, key, encrypted, next) {
     next(decrypted);
 }
 
-decipher('aes-256-ecb', 'asdfjklc', info, log);
+decipher('aes-256-ecb', key, info, log);
